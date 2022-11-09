@@ -65,24 +65,23 @@ App = {
             const personaNombre = listPersonas[3]
             const personaApellido = listPersonas[4]
             const personaHorDisponible = listPersonas[5]
-            const personaUrlImage = listPersonas[5]
-            const personaServicios = listPersonas[6]
+            const personaUrlImage = listPersonas[6]
+            const personaServicios = "Albañil, Gasista"
 
             let taskElement = `
             <div class="card bg-dark rounded-0 mb-2">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <span>${personaNombre}</span>
+                <div class="card-header d-flex  ">
+                    <span>${personaNombre} </span>
+                    <span> _ </span>
                     <span>${personaApellido}</span>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input"  >
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <span> ID: ${personaId}</span> <br>
                     <span>Direccion: ${personaDirecion}</span> <br>
                     <span>¿Es profesional?: ${personaEsProfesional}</span> <br>
                     <span>Horario disponible: ${personaHorDisponible}</span> <br>
-                    <span><img src="${personaServicios}"></span> <br>
+                    <span><img src="${personaUrlImage}" style="width: 200px; height: 200px"></span> <br>
                     <span>Servicios: ${personaServicios}</span> <br>               
                 </div>
             </div>`;
@@ -148,9 +147,7 @@ App = {
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span>${acuerdoId}</span>
                     
-                    <div class="form-check form-switch">
-                        <input class="form-check-input"  >
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <span>${direccionContratante}</span> <br>

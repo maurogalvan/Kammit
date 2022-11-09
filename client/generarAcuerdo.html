@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./main.css">
-        <title>K A M M I T</title>
-    </head>
-    <body>
-        <a href="index.html" style="text-decoration:none">index</a>
-        <a href="agregarPersona.html" style="text-decoration:none">agregarPersona</a>
-        <div class="card card-body bg-dark rounded-0 mb-4">
-            <h1>
-              <span class="material-icons"> grid_view </span>
-              DTasksapp
-            </h1>
-            <h6 class="text-muted">Decentralize Tasks App</h6>
-            <div class="d-flex align-items-center">
-              <span class="material-icons"> account_balance_wallet </span>
-              <span class="ms-2"  id="account"></span>
-            </div>
-            <span id="account"></span>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+    <title>K A M M I T</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">-     K A M M I T</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Index <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="generarAcuerdo.html">Agregar persona</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="generarAcuerdo.html">Generar contrato</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkContratante.html">Checks de comprobacion</a>
+        </li>
+      
+      </ul>
+      
+    </div>
+  </nav>
+  
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-body bg-dark rounded-0 mb-6">
+          <h1>
+            <span class="material-icons"> K A M M I T </span>
+            
+          </h1>
+          <h6 class="text-muted">Aapp descentralizada para contratar personas</h6>
+          <div class="d-flex align-items-center">
+            <span class="material-icons"> Direccion de billetera </span> <br>
+            <span class="ms-1"  id="account"></span>
+          </div>
+          <span id="account"></span>
         </div>
 
         <form id="renderTask"></form>
-        <form id="renderAcuerdo" class="card card-body bg-dark">
+        
+        <form id="renderAcuerdo" style="margin-top: 10px;" class="card card-body bg-dark">
             <h4>Guardar acuerdo </h4>
             <input
               type="text"
