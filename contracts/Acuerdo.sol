@@ -32,15 +32,15 @@ contract Acuerdo {
 
     function generarAcuerdo (address payable _contratado, string memory _direccionAvisitar, string memory _horarioDeVisita, string memory _servicioArealizar, string memory _descripcion,
                              uint _monto) public payable {
-        require(msg.value == _monto && msg.value>0 && _monto>0);
+        //require(msg.value == _monto && msg.value>0 && _monto>0);
         require(bytes(_direccionAvisitar).length > 0);
         require(bytes(_servicioArealizar).length > 0);
         require(bytes(_descripcion).length > 0);
         
 
         id++;
-        listAcuerdos[id] = AcuerdoDePalabra(id, msg.sender, _contratado, _direccionAvisitar, _horarioDeVisita, _servicioArealizar, _descripcion, msg.value, false, false, Status.open);
-        emit acuerdoGenerado(id, msg.sender,_contratado, _direccionAvisitar, _horarioDeVisita, _servicioArealizar, _descripcion, msg.value, false, false);
+        listAcuerdos[id] = AcuerdoDePalabra(id, msg.sender, _contratado, _direccionAvisitar, _horarioDeVisita, _servicioArealizar, _descripcion, _monto, false, false, Status.open);
+        emit acuerdoGenerado(id, msg.sender,_contratado, _direccionAvisitar, _horarioDeVisita, _servicioArealizar, _descripcion, _monto, false, false);
     }
 
     function getAcuerdo (uint _id) public view returns (uint,address,address,string memory,string memory,string memory,string memory,uint,bool,bool) {
@@ -71,8 +71,15 @@ contract Acuerdo {
         _listAcuerdos.checkContratante = !_listAcuerdos.checkContratante;
         listAcuerdos[_id] = _listAcuerdos;
         emit checkContratanteModificado (_id, msg.sender);
+        /*
+        if(listAcuerdos[id].checkContratado == true && listAcuerdos[id].checkContratante == true){
+            pagar(_id);
+        }*/
+        
     }
-    
+
+   
+
     function checkContratado(uint _id) public{
         address dirContratanteContrato = getContratadoAcuerdo(_id);
         require(dirContratanteContrato == msg.sender);
@@ -81,9 +88,14 @@ contract Acuerdo {
         _listAcuerdos.checkContratado = !_listAcuerdos.checkContratado;
         listAcuerdos[_id] = _listAcuerdos;
         emit checkContratadoModificado (_id, msg.sender);
+        /*
+        if(listAcuerdos[id].checkContratado == true && listAcuerdos[id].checkContratante == true){
+            pagar(_id);
+            emit pagado (_id);
+        }*/
     }
 
-    function pagar (uint _id) external payable {
+  function pagar (uint _id) public payable {
         
         AcuerdoDePalabra memory _listAcuerdos = listAcuerdos[_id];
         require( _listAcuerdos.status == Status.open);
@@ -96,5 +108,7 @@ contract Acuerdo {
         _listAcuerdos.status = Status.finalized;
         listAcuerdos[_id] = _listAcuerdos;
         emit pagado (_id);
-    }
+    }   
+
+    
 }

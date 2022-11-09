@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@truffle/contract": "^4.6.6",
+    "bootstrap": "^5.2.2",
+    "lite-server": "^2.6.1"
+  },
+  "name": "kammit",
+  "description": "Contrata de manera segura con Kammit, elegi un profesional, acorda los terminos, y paga de manera segura a traves de smart contracts.",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurogalvan/Kammit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurogalvan/Kammit/issues"
+  },
+  "homepage": "https://github.com/maurogalvan/Kammit#readme"
+}

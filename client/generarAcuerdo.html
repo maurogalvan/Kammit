@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./main.css">
+        <title>K A M M I T</title>
+    </head>
+    <body>
+        <a href="index.html" style="text-decoration:none">index</a>
+        <a href="agregarPersona.html" style="text-decoration:none">agregarPersona</a>
+        <div class="card card-body bg-dark rounded-0 mb-4">
+            <h1>
+              <span class="material-icons"> grid_view </span>
+              DTasksapp
+            </h1>
+            <h6 class="text-muted">Decentralize Tasks App</h6>
+            <div class="d-flex align-items-center">
+              <span class="material-icons"> account_balance_wallet </span>
+              <span class="ms-2"  id="account"></span>
+            </div>
+            <span id="account"></span>
+        </div>
+
+        <form id="renderTask"></form>
+        <form id="renderAcuerdo" class="card card-body bg-dark">
+            <h4>Guardar acuerdo </h4>
+            <input
+              type="text"
+              name="dirContratado"
+              id="dirContratado"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese la direccion de la persona que contrata"
+              autofocus
+            />
+            <input
+              type="text"
+              name="dirAvisitar"
+              id="dirAvisitar"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese la direccion donde se debe realizar el servicio"
+              autofocus
+            />
+            <input
+              type="text"
+              name="horarioDeVisita"
+              id="horarioDeVisita"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese el horario de visita"
+              autofocus
+            />
+            <input
+              type="text"
+              name="servicioArealizar"
+              id="servicioArealizar"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese brevemente el servicio que se le va a realizar"
+              autofocus
+            />
+            <input
+              type="text"
+              name="descripcion"
+              id="descripcion"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese una breve descripcion"
+              autofocus
+            />
+            <input
+              type="uint"
+              name="monto"
+              id="monto"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Ingrese el monto acordado"
+              autofocus
+            />
+            
+            <br>
+            <button class="btn btn-primary">save</button>
+        </form>
+
+        <div class="col-md-8">
+          <div id="acuerdosList"></div>
+        </div>
+        <br>
+
+        <script src="/libs/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+        <script src="./app.js"></script>
+        <script src="./ui.js"></script>
+    </body>
+</html>

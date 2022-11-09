@@ -2,8 +2,8 @@
 pragma solidity ^0.8.4;
 
 contract Personas{
-    uint id = 0;
-    mapping (uint => Persona) listPersonas;
+    uint public id = 0;
+    mapping (uint => Persona) public listPersonas;
 
     struct Persona{
         uint idPersona;
@@ -24,8 +24,8 @@ contract Personas{
         require(bytes(_urlImagen).length > 0);
         string[] memory _servicios;
         id++;
-        listPersonas[id] = Persona(id, payable(msg.sender),false, _nombre,_apellido,"", _urlImagen, _servicios);
-        emit personaRegistrada(id, payable(msg.sender), false, _nombre, _apellido, "", _urlImagen, _servicios);
+        listPersonas[id] = Persona(id, payable(msg.sender),false, _nombre,_apellido,"-", _urlImagen, _servicios);
+        emit personaRegistrada(id, payable(msg.sender), false, _nombre, _apellido, "-", _urlImagen, _servicios);
     }
 
     function agregarPostulante (string memory _nombre, string memory _apellido, string memory _horarioDisponible, string memory _urlImagen, string[] memory _serviciosPostulante) public {
@@ -33,10 +33,10 @@ contract Personas{
         require(bytes(_apellido).length > 0);
         require(bytes(_horarioDisponible).length > 0);
         require(bytes(_urlImagen).length > 0);
-        
+        bool esProfesional = true;
         id++;
-        listPersonas[id] = Persona(id, payable(msg.sender), true ,_nombre,_apellido,_horarioDisponible, _urlImagen, _serviciosPostulante);
-        emit personaRegistrada(id, payable(msg.sender), true ,_nombre, _apellido, _horarioDisponible, _urlImagen, _serviciosPostulante);
+        listPersonas[id] = Persona(id, payable(msg.sender), esProfesional ,_nombre,_apellido,_horarioDisponible, _urlImagen, _serviciosPostulante);
+        emit personaRegistrada(id, payable(msg.sender), esProfesional ,_nombre, _apellido, _horarioDisponible, _urlImagen, _serviciosPostulante);
     }
 
     function getPersona (uint _id) public view returns (uint,address, bool,string memory, string memory,string memory,string memory, string[] memory) {
